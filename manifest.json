@@ -1,0 +1,46 @@
+{
+    "name": "coffee shop",
+    "short_name": "coffee",
+    "icons": [
+        {
+            "src": "./images/icon-48.png",
+            "type": "image/png",
+            "sizes": "48x48"
+        },
+        {
+            "src": "./images/pic-96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "./images/something.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "./images/192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "./images/252.png",
+            "type": "image/png",
+            "sizes": "252x252"
+        }
+    ],
+    "start_url": "./index.html",
+    "scope": ".",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#fff",
+    "theme_color": "blue",
+    "description": "Best coffee maker",
+    "dir": "ltr",
+    "lang": "en-US",
+    "related_application": [
+        {
+            "platform": "play",
+            "url": "https://play.google.com/store/apps/details?id=com.starbucks.mobilecard&hl=en_IN&gl=US"
+        }
+    ]
+}
