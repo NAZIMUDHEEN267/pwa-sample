@@ -33,7 +33,7 @@
     "display": "standalone",
     "orientation": "portrait-primary",
     "background_color": "#fff",
-    "theme_color": "blue",
+    "theme_color": "#555",
     "description": "Best coffee maker",
     "dir": "ltr",
     "lang": "en-US",
