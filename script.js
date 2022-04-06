@@ -24,3 +24,13 @@ const showCoffees = () => {
 }
 
 document.addEventListener("DOMContentLoaded", showCoffees);
+
+window.addEventListener("load", (e) => {
+})
+
+if('serviceWorker'){
+    navigator.serviceWorker.register('/sw.js')
+    .then(function(e){
+        console.log(e);
+    })
+}
