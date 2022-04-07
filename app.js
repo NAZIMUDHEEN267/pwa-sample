@@ -1,17 +1,41 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
+const res = require('express/lib/response');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve()+"/public/index.html");
-});
+function router(endPath) {
+    const files = fs.readdirSync(path.join(__dirname, endPath))
 
-app.get('/style.css', (req, res) => {
-    res.sendFile(path.resolve()+"/public/style.css")
-})
+    files.forEach(file => {
+        const filePath = path.join(__dirname, endPath, file);
+        const stat = fs.statSync(filePath);
+        if (stat.isFile()) {
 
-app.get("/script.js", (req, res)=> {
-    res.sendFile(path.resolve()+"/public/script.js")
-})
+            if (file === 'index.html') {
+                app.get('/', (req, res) => {
+                    res.sendFile(filePath)
+                })
+            } else if (path.extname(file) === ".jpg") {
+                app.get('/images/' + file, (req, res) => {
+                    res.sendFile(filePath);
+                })
+            } else if (path.extname(file) === ".png") {
+                app.get('/images/' + file, (req, res) => {
+                    res.sendFile(filePath);
+                })
+            } else {
+                app.get(`/${file}`, (req, res) => {
+                    res.sendFile(filePath);
+                })
+            }
 
-app.listen(3000);
+        } else {
+            router(endPath + `/${file}`);
+        }
+    })
+}
+
+router('public');
+
+app.listen(5000);
