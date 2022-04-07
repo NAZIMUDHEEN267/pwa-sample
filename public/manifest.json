@@ -1,0 +1,11 @@
+{
+    "name": "coffee",
+    "short_name": "coffee",
+    "background_color": "#fff",
+    "theme_color": "crimson",
+    "display": "standalone",
+    "description": "This is a coffee app",
+    "orientation": "portrait-primary",
+    "start_url": "./index.html",
+    "scope": "../public"
+}
