@@ -1,6 +1,8 @@
 
+let count = 0;
+
 self.addEventListener("install", (e) => {
-    console.log('install');
+    console.log('install'+count++);
 })
 
 self.addEventListener("activate", (e)=>{
@@ -38,5 +40,5 @@ self.addEventListener("activate", (e)=>{
 })
 
 self.addEventListener("fetch", (e)=> {
-    
+    e.respondWith(fetch(e.request))
 })
