@@ -11,16 +11,7 @@ function router(endPath) {
         const filePath = path.join(__dirname, endPath, file);
         const stat = fs.statSync(filePath);
         if (stat.isFile()) {
-
-            if (file === 'index.html') {
-                app.get('/', (req, res) => {
-                    res.sendFile(filePath)
-                })
-            } else if (path.extname(file) === ".jpg") {
-                app.get('/images/' + file, (req, res) => {
-                    res.sendFile(filePath);
-                })
-            } else if (path.extname(file) === ".png") {
+            if (path.extname(file) === ".jpg" || path.extname(file) === ".png") {
                 app.get('/images/' + file, (req, res) => {
                     res.sendFile(filePath);
                 })

@@ -1,44 +1,50 @@
+// ============= events
+const cacheName = "coffee";
+const FILES = [
+    "index.html",
+    "about.html",
+    "contact.html",
+    "style.css",
+    "script.js",
+    "manifest.json",
+    "images/coffee1.jpg",
+    "images/coffee2.jpg",
+    "images/coffee3.jpg",
+    "images/coffee4.jpg",
+    "images/coffee5.jpg",
+    "images/coffee6.jpg",
+    "images/coffee7.jpg",
+    "images/coffee8.jpg",
+    "images/coffee9.jpg",
+    "images/icon-48.jpg",
+    "images/icon-72.jpg",
+    "images/icon-96.jpg",
+    "images/icon-120.jpg",
+    "images/icon-128.jpg",
+    "images/icon-144.jpg",
+    "images/icon-152.jpg",
+    "images/icon-180.jpg",
+    "images/icon-192.jpg",
+    "images/icon-384.jpg",
+    "images/icon-512.jpg",
+];
 
-let count = 0;
+try {
+    self.addEventListener("install", (e) => {
+        e.waitUntil(caches.open(cacheName)
+            .then((cache) => cache.addAll(FILES)))
+    })
 
-self.addEventListener("install", (e) => {
-    console.log('install'+count++);
-})
+    self.addEventListener("activate", () => {
+        console.log('activate');
+    })   
 
-self.addEventListener("activate", (e)=>{
-    console.log('activate');
-    e.waitUntil(caches.open("escape")
-    .then(cache => cache.addAll([
-        "index.html",
-        "style.css",
-        "about.html",
-        "contact.html",
-        "manifest.json",
-        "script.js",
-        "images/",
-        "images/coffee1.jpg",
-        "images/coffee2.jpg",
-        "images/coffee3.jpg",
-        "images/coffee4.jpg",
-        "images/coffee5.jpg",
-        "images/coffee6.jpg",
-        "images/coffee7.jpg",
-        "images/coffee8.jpg",
-        "images/coffee9.jpg",
-        "images/icon-48.jpg",
-        "images/icon-72.jpg",
-        "images/icon-96.jpg",
-        "images/icon-120.jpg",
-        "images/icon-128.jpg",
-        "images/icon-152.jpg",
-        "images/icon-180.jpg",
-        "images/icon-192.jpg",
-        "images/icon-384.jpg",
-        "images/icon-512.jpg",
-    ])
-    .catch(err => console.log(err))))
-})
+    // self.addEventListener("fetch", (e) => {
+    //     e.respondWith(caches.match(e.request.url))
+    // })
 
-self.addEventListener("fetch", (e)=> {
-    e.respondWith(fetch(e.request))
-})
+} catch (err) {
+    console.error("haklsdfjklasdjf")
+}    
+
+

@@ -38,16 +38,17 @@ if (worker) {
   worker.register('sw.js');
 }
 
-let defferPrompt;
+window.localStorage.removeItem("install");
 
+let defferPrompt;
 // listening browser homes screen add event 
 self.addEventListener("beforeinstallprompt", (e) => {
-  defferPrompt = e;
   // prevent to fire event  
   e.preventDefault();
-})
 
-window.localStorage.removeItem("install");
+  defferPrompt = e;
+  console.log(e);
+})
 
 // when the app installed
 window.addEventListener("appinstalled", () => {
@@ -56,7 +57,6 @@ window.addEventListener("appinstalled", () => {
 
 // add message banner to body node
 if(!window.localStorage.getItem("install")){
-  console.log(defferPrompt);
   setTimeout(() => {
     document.body.innerHTML += `<div class="install-message">
         <p>Benefit of our app. It's totally free, 
@@ -94,3 +94,4 @@ if(!window.localStorage.getItem("install")){
      
   }, 2000);  
 }
+
