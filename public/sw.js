@@ -39,12 +39,12 @@ try {
         console.log('activate');
     })   
 
-    // self.addEventListener("fetch", (e) => {
-    //     e.respondWith(caches.match(e.request.url))
-    // })
+    self.addEventListener("fetch", (e) => {
+        e.respondWith(caches.match(e.request.url))
+    })
 
 } catch (err) {
-    console.error("haklsdfjklasdjf")
+    console.error(err)
 }    
 
 
